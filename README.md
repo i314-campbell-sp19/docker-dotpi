@@ -14,7 +14,7 @@ The easiest method of installing Docker on a Raspberry Pi running Raspbian, is t
 From the directory with the docker file, run `docker build -t dotpi .`.
 
 ## Create an automated task for zone updates
-The zonefile included in the base container will not be up-to-date, but the latest version of this file can be downloaded from https://gist.githubusercontent.com/clintoncampbell/ee3ce5e1826315cf1e6659f3c0dccd9c/raw.
+The zonefile included in the base container will not be up-to-date, but the latest version of this file can be downloaded from https://gist.githubusercontent.com/clintoncampbell/c05cf8a6657f661a9e8530d792631d8f/raw.
 
 To ensure that you are always running with the latest version of the database, I recommend that you automate a download. Within Linux, _cron_ is responsible for running recurring tasks. We can set up our own tasks within _cron_ by editing the _crontab_ with `crontab -e`. 
 
