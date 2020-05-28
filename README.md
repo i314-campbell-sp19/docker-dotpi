@@ -22,7 +22,7 @@ Follow the steps below to configure the root user to download the zone into `/et
 
 - `sudo mkdir -p /etc/dotpi/zones`
 - `sudo crontab -e`
--- Insert a new line in the crontab containing `*/30 * * * * wget -O /etc/dotpi/zones/db.pi https://gist.githubusercontent.com/clintoncampbell/ee3ce5e1826315cf1e6659f3c0dccd9c/raw`
+-- Insert a new line in the crontab containing `*/30 * * * * wget -O /etc/dotpi/zones/db.pi https://gist.githubusercontent.com/clintoncampbell/c05cf8a6657f661a9e8530d792631d8f/raw`
 -- Save and exit
 - Confirm that the file has been downloaded to `/etc/dotpi/zones/db.pi`
 
