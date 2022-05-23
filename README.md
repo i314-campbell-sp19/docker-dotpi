@@ -7,7 +7,7 @@ This image can be used as a general purpose bind server by mapping your own name
 From the directory with the docker file, run `docker build -t dotpi .`.
 
 ## Create an automated task for zone updates
-The zonefile included in the base container will not be up-to-date, but the latest version of this file can be downloaded from https://gist.githubusercontent.com/clintoncampbell/ee3ce5e1826315cf1e6659f3c0dccd9c/raw.
+The zonefile included in the base container will not be up-to-date, but the latest version of this file can be downloaded from https://gist.githubusercontent.com/clintoncampbell/3df1705652a46c1f400607e5542ab827/raw.
 
 To ensure that you are always running with the latest version of the database, I recommend that you automate a download. Within Linux, _cron_ is responsible for running recurring tasks. We can set up our own tasks within _cron_ by editing the _crontab_ with `crontab -e`. 
 
@@ -15,7 +15,7 @@ Follow the steps below to configure the root user to download the zone into `/et
 
 - `sudo mkdir -p /etc/dotpi/zones`
 - `sudo crontab -e`
--- Insert a new line in the crontab containing `*/30 * * * * wget -O /etc/dotpi/zones/db.pi https://gist.githubusercontent.com/clintoncampbell/ee3ce5e1826315cf1e6659f3c0dccd9c/raw`
+-- Insert a new line in the crontab containing `*/30 * * * * wget -O /etc/dotpi/zones/db.pi https://gist.githubusercontent.com/clintoncampbell/3df1705652a46c1f400607e5542ab827/raw`
 -- Save and exit
 - Confirm that the file has been downloaded to `/etc/dotpi/zones/db.pi`
 
@@ -63,7 +63,7 @@ Add the following section to your `/etc/bind/named.conf.local`. If you've config
 
 ```
 zone "pi" IN {
-  type slave;
-  masters { 10.10.10.10; };
+  type secondary;
+  primaries { 10.10.10.10; };
 };
 ```
