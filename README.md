@@ -3,13 +3,6 @@ The attached Dockerfile builds a new container running Bind9 that is intended to
 
 This image can be used as a general purpose bind server by mapping your own named.conf and other configuration files into /etc/bind of the container.
 
-## Install Docker (Raspbian Stretch)
-The easiest method of installing Docker on a Raspberry Pi running Raspbian, is to execute a scripted install from the Docker website. 
-
-1. `curl -sSL get.docker.com | sh` to install Docker
-2. `sudo usermod -aG docker pi` to allow the pi user to manage Docker
-3. `echo gpu_mem=16 | sudo tee -a /boot/config.txt` to decrease memory reserved for graphics operations (Optional step to improve performance)
-
 ## Build the container image
 From the directory with the docker file, run `docker build -t dotpi .`.
 
