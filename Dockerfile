@@ -1,6 +1,9 @@
 FROM alpine
 
-RUN apk add --no-cache bind && mkdir -p /var/cache/bind && mkdir -p /var/run/named
+RUN apk add --no-cache bind && \
+    rndc-confgen -a -u root && \
+    mkdir -p /var/cache/bind && \
+    mkdir -p /var/run/named
 
 COPY ./conf/named.conf /etc/bind/named.conf
 
